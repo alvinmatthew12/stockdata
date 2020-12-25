@@ -41,9 +41,9 @@ class DailyAdjustedViewController: UIViewController {
         tableView.register(UINib(nibName: K.Cell.comparisonTableViewCell, bundle: nil), forCellReuseIdentifier: K.Cell.comparisonTableViewCell)
     }
     
-    func showErrorAlert(message: String) {
+    func showAlert(title: String = "Error", message: String) {
         let alertHelper = AlertHelper()
-        let alert: UIAlertController = alertHelper.showAlert(title: "Error", message: message)
+        let alert: UIAlertController = alertHelper.showAlert(title: title, message: message)
         self.present(alert, animated: true, completion: nil)
     }
 }
@@ -58,7 +58,19 @@ extension DailyAdjustedViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        dailyAdjustedModel.fetchDailyAdjusted(symbol: searchBar.text!.uppercased())
+        if searchBar.text! == "" {
+            view.endEditing(true)
+            return
+        }
+        if addedSymbols.count < 3 {
+            if addedSymbols.firstIndex(of: searchBar.text!) != nil {
+                showAlert(title: "Alert", message: "Symbol has been added")
+            } else {
+                dailyAdjustedModel.fetchDailyAdjusted(symbol: searchBar.text!.uppercased())
+            }
+        } else {
+            showAlert(title: "Alert", message: "Maximum three symbols that can be compared at a time")
+        }
         view.endEditing(true)
     }
     
@@ -84,7 +96,7 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
     }
     
     func didFailWithError(error: Error, errorMessage: String) {
-        showErrorAlert(message: errorMessage)
+        showAlert(message: errorMessage)
     }
     
     func removeSymbol(_ symbol: String) {
