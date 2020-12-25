@@ -102,13 +102,19 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
 
 extension DailyAdjustedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return addedSymbols.count
+        return addedSymbols.count > 0 ? addedSymbols.count : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Cell.symbolCollectionViewCell, for: indexPath) as! SymbolCollectionViewCell
         
-        cell.symbolLabel.text = addedSymbols[indexPath.item]
+        if addedSymbols.count > 0 {
+            cell.symbolLabel.text = addedSymbols[indexPath.item]
+            cell.closeImage.isHidden = false
+        } else {
+            cell.symbolLabel.text = "--"
+            cell.closeImage.isHidden = true
+        }
         
         switch indexPath.item {
         case 1:
@@ -127,7 +133,9 @@ extension DailyAdjustedViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        removeSymbol(addedSymbols[indexPath.row])
+        if addedSymbols.count > 0 {
+            removeSymbol(addedSymbols[indexPath.row])
+        }
     }
 }
 
@@ -135,14 +143,18 @@ extension DailyAdjustedViewController: UICollectionViewDelegate, UICollectionVie
 
 extension DailyAdjustedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyComparisons.count
+        return dailyComparisons.count > 0 ? dailyComparisons.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cell.comparisonTableViewCell, for: indexPath) as! ComparisonTableViewCell
         cell.selectionStyle = .none
-        cell.date = dailyComparisons[indexPath.row].date
-        cell.timeSeries = dailyComparisons[indexPath.row].timeSeries
+        if dailyComparisons.count > 0 {
+            cell.date = dailyComparisons[indexPath.row].date
+            cell.timeSeries = dailyComparisons[indexPath.row].timeSeries
+        } else {
+            cell.date = "0000-00-00"
+        }
         cell.itemTableView.reloadData()
         return cell
     }

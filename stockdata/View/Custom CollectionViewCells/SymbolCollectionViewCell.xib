@@ -50,6 +50,7 @@
             <size key="customSize" width="141" height="46"/>
             <connections>
                 <outlet property="cardView" destination="SM3-cE-jRB" id="hqf-uc-VMb"/>
+                <outlet property="closeImage" destination="9Ba-ER-7lQ" id="bp8-zq-hdZ"/>
                 <outlet property="symbolLabel" destination="ocq-4s-rUy" id="T0W-YQ-giq"/>
             </connections>
             <point key="canvasLocation" x="148.55072463768118" y="111.16071428571428"/>

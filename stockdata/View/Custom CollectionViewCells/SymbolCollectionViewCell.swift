@@ -11,11 +11,14 @@ class SymbolCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var closeImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         cardView.layer.cornerRadius = 8
+        symbolLabel.text = "--"
+        closeImage.isHidden = true
     }
 
 }
