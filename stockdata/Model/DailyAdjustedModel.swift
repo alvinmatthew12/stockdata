@@ -22,12 +22,17 @@ struct DailyAdjustedModel {
         performRequest(with: urlString)
     }
     
-    func addDailyComparison(_ dailyComparison: [DailyComparison]) -> [DailyComparison] {
-        if dailyComparison.count > 0 {
-            // code here to insert comparison to DailyTimeSerie
-            return dailyComparison.sorted { $1.date < $0.date }
+    func addDailyComparison(currentDailyComparison: [DailyComparison], newDailyComparison: [DailyComparison], numberOfSymbols: Int) -> [DailyComparison] {
+        if numberOfSymbols > 1 {
+            var mergedComparison: [DailyComparison] = currentDailyComparison
+            for new in newDailyComparison {
+                if let index = mergedComparison.firstIndex(where: { $0.date == new.date }) {
+                    mergedComparison[index].timeSeries.append(contentsOf: new.timeSeries)
+                }
+            }
+            return mergedComparison.sorted { $1.date < $0.date }
         }
-        return dailyComparison.sorted { $1.date < $0.date }
+        return newDailyComparison.sorted { $1.date < $0.date }
     }
     
     private func performRequest(with urlString: String) {

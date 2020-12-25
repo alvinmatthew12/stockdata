@@ -46,7 +46,7 @@ struct TimeSeriesDaily: Codable {
 
 struct DailyComparison {
     let date: String
-    let timeSeries: [DailyTimeSerie]
+    var timeSeries: [DailyTimeSerie]
 }
 
 struct DailyTimeSerie {

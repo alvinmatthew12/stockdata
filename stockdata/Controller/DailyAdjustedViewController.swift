@@ -29,8 +29,9 @@ class DailyAdjustedViewController: UIViewController {
         self.hideKeyboardWhenTappedAnywhere()
         
         dailyAdjustedModel.delegate = self
-        
         dailyAdjustedModel.fetchDailyAdjusted(symbol: "AIA")
+        
+        searchBar.delegate = self
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -43,6 +44,28 @@ class DailyAdjustedViewController: UIViewController {
 
 }
 
+// MARK:- UISearchBarDelegate
+
+extension DailyAdjustedViewController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.text = ""
+        return true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        dailyAdjustedModel.fetchDailyAdjusted(symbol: searchBar.text!.uppercased())
+        view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
+}
 
 // MARK:- DailyAdjustedModelDelegate, Manipulate Data
 
@@ -50,8 +73,7 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
     func didUpdateDailyAdjusted(_ dailyAdjustedModel: DailyAdjustedModel, dailyComparison: [DailyComparison]) {
         DispatchQueue.main.async { [self] in
             addedSymbols.append(dailyComparison[0].timeSeries[0].symbol)
-            dailyComparisons = dailyAdjustedModel.addDailyComparison(dailyComparison)
-            print(dailyComparison)
+            dailyComparisons = dailyAdjustedModel.addDailyComparison(currentDailyComparison: dailyComparisons, newDailyComparison: dailyComparison, numberOfSymbols: addedSymbols.count)
             collectionView.reloadData()
             tableView.reloadData()
         }
@@ -105,6 +127,7 @@ extension DailyAdjustedViewController: UITableViewDataSource, UITableViewDelegat
         cell.selectionStyle = .none
         cell.date = dailyComparisons[indexPath.row].date
         cell.timeSeries = dailyComparisons[indexPath.row].timeSeries
+        cell.itemTableView.reloadData()
         return cell
     }
     
