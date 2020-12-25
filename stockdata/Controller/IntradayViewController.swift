@@ -43,6 +43,12 @@ class IntradayViewController: UIViewController {
         showSortByActionSheet()
     }
     
+    func showErrorAlert(message: String) {
+        let alertHelper = AlertHelper()
+        let alert: UIAlertController = alertHelper.showAlert(title: "Error", message: message)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK:- Sort by
     
     func showSortByActionSheet() {
@@ -87,6 +93,7 @@ extension IntradayViewController: UISearchBarDelegate {
 // MARK:- IntradayModelDelegate
 
 extension IntradayViewController: IntradayModelDelegate {
+    
     func didUpdateIntraday(_ intradayModel: IntradayModel, intraday: Intraday) {
         DispatchQueue.main.async { [self] in
             symbolLabel.text = intraday.symbol
@@ -96,8 +103,8 @@ extension IntradayViewController: IntradayModelDelegate {
         }
     }
     
-    func didFailWithError(error: Error) {
-        print(error)
+    func didFailWithError(error: Error, errorMessage: String) {
+        showErrorAlert(message: errorMessage)
     }
 }
 

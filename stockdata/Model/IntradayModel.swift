@@ -9,7 +9,7 @@ import Foundation
 
 protocol IntradayModelDelegate {
     func didUpdateIntraday(_ intradayModel: IntradayModel, intraday: Intraday)
-    func didFailWithError(error: Error)
+    func didFailWithError(error: Error, errorMessage: String)
 }
 
 struct IntradayModel {
@@ -45,7 +45,7 @@ struct IntradayModel {
             
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
+                    self.delegate?.didFailWithError(error: error!, errorMessage: errorHandle(error: error!))
                     return
                 }
                 if let safeData = data {
@@ -76,8 +76,20 @@ struct IntradayModel {
             return intraday
 
         } catch {
-            delegate?.didFailWithError(error: error)
+            DispatchQueue.main.async {
+                delegate?.didFailWithError(error: error, errorMessage: errorHandle(error: error))
+            }
             return nil
         }
+    }
+    
+    private func errorHandle(error: Error) -> String {
+        var errorMessage = "Sorry, something went wrong"
+        
+        if error.localizedDescription == "The data couldn’t be read because it is missing." {
+            errorMessage = "Sorry, we couldn't find the symbol"
+        }
+        
+        return errorMessage
     }
 }
