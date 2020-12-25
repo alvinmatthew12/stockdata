@@ -15,7 +15,7 @@ class IntradayViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var intradayModel = IntradayModel()
-    var timeSeries: [TimeSerie] = []
+    var timeSeries: [IntradayTimeSerie] = []
     
     override func viewWillAppear(_ animated: Bool) {
         title = "Intraday Data"

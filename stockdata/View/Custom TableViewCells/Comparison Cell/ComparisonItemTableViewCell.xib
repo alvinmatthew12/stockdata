@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ComparisonItemTableViewCell" rowHeight="121" id="n5v-Qo-JUW" customClass="ComparisonItemTableViewCell" customModule="stockdata" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="589" height="121"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n5v-Qo-JUW" id="0Vo-wA-a7p">
+                <rect key="frame" x="0.0" y="0.0" width="589" height="121"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-iC-bLr">
+                        <rect key="frame" x="0.0" y="0.0" width="589" height="121"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lg-u7-4xI">
+                                <rect key="frame" x="0.0" y="0.0" width="118" height="121"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTF-q7-scR">
+                                <rect key="frame" x="118" y="0.0" width="235.5" height="121"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10T-dN-C9k">
+                                <rect key="frame" x="353.5" y="0.0" width="235.5" height="121"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="xTF-q7-scR" firstAttribute="leading" secondItem="5lg-u7-4xI" secondAttribute="trailing" id="1jp-Tp-kUg"/>
+                            <constraint firstAttribute="bottom" secondItem="5lg-u7-4xI" secondAttribute="bottom" id="5HY-je-qFh"/>
+                            <constraint firstItem="xTF-q7-scR" firstAttribute="top" secondItem="XE3-iC-bLr" secondAttribute="top" id="E46-Fs-CEn"/>
+                            <constraint firstItem="5lg-u7-4xI" firstAttribute="leading" secondItem="XE3-iC-bLr" secondAttribute="leading" id="EmP-4r-iho"/>
+                            <constraint firstAttribute="trailing" secondItem="10T-dN-C9k" secondAttribute="trailing" id="JHj-Xv-BeF"/>
+                            <constraint firstItem="xTF-q7-scR" firstAttribute="leading" secondItem="5lg-u7-4xI" secondAttribute="trailing" id="PrG-T4-Fwj"/>
+                            <constraint firstItem="10T-dN-C9k" firstAttribute="top" secondItem="XE3-iC-bLr" secondAttribute="top" id="WYm-vI-ME9"/>
+                            <constraint firstAttribute="bottom" secondItem="10T-dN-C9k" secondAttribute="bottom" id="ifd-X5-xlN"/>
+                            <constraint firstItem="10T-dN-C9k" firstAttribute="leading" secondItem="xTF-q7-scR" secondAttribute="trailing" id="lzW-lu-Xjq"/>
+                            <constraint firstItem="10T-dN-C9k" firstAttribute="leading" secondItem="xTF-q7-scR" secondAttribute="trailing" id="mi2-6Z-BYM"/>
+                            <constraint firstItem="5lg-u7-4xI" firstAttribute="top" secondItem="XE3-iC-bLr" secondAttribute="top" id="rdM-nK-r3z"/>
+                            <constraint firstAttribute="bottom" secondItem="xTF-q7-scR" secondAttribute="bottom" id="z19-Qj-nOj"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="XE3-iC-bLr" secondAttribute="trailing" id="9Ke-eG-m4J"/>
+                    <constraint firstItem="5lg-u7-4xI" firstAttribute="width" secondItem="0Vo-wA-a7p" secondAttribute="width" multiplier="0.2" id="AfU-xC-znA"/>
+                    <constraint firstItem="xTF-q7-scR" firstAttribute="width" secondItem="0Vo-wA-a7p" secondAttribute="width" multiplier="0.4" id="FKD-cv-1mh"/>
+                    <constraint firstAttribute="bottom" secondItem="XE3-iC-bLr" secondAttribute="bottom" id="Pcf-5O-T8B"/>
+                    <constraint firstItem="XE3-iC-bLr" firstAttribute="leading" secondItem="0Vo-wA-a7p" secondAttribute="leading" id="RGU-wV-6L0"/>
+                    <constraint firstItem="10T-dN-C9k" firstAttribute="width" secondItem="0Vo-wA-a7p" secondAttribute="width" multiplier="0.4" id="Vfa-gE-DCv"/>
+                    <constraint firstItem="XE3-iC-bLr" firstAttribute="top" secondItem="0Vo-wA-a7p" secondAttribute="top" id="hrn-OF-KtF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label1" destination="5lg-u7-4xI" id="PkS-BP-CIb"/>
+                <outlet property="label2" destination="xTF-q7-scR" id="ODT-0q-rIH"/>
+                <outlet property="label3" destination="10T-dN-C9k" id="siK-S3-sii"/>
+            </connections>
+            <point key="canvasLocation" x="-44.20289855072464" y="-82.700892857142847"/>
+        </tableViewCell>
+    </objects>
+</document>

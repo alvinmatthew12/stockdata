@@ -22,6 +22,13 @@
 		E1C9C3C6259604C50074E490 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3C5259604C50074E490 /* ViewController.swift */; };
 		E1C9C3CC259628210074E490 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3CB259628210074E490 /* Enum.swift */; };
 		E1C9C3CF25962BE10074E490 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3CE25962BE10074E490 /* Alert.swift */; };
+		E1C9C3D225963B560074E490 /* DailyAdjustedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3D125963B560074E490 /* DailyAdjustedViewController.swift */; };
+		E1C9C3D725963FF70074E490 /* SymbolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3D525963FF70074E490 /* SymbolCollectionViewCell.swift */; };
+		E1C9C3D825963FF70074E490 /* SymbolCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3D625963FF70074E490 /* SymbolCollectionViewCell.xib */; };
+		E1C9C3DD25964A7B0074E490 /* ComparisonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3DB25964A7B0074E490 /* ComparisonTableViewCell.swift */; };
+		E1C9C3DE25964A7B0074E490 /* ComparisonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3DC25964A7B0074E490 /* ComparisonTableViewCell.xib */; };
+		E1C9C3E125964E380074E490 /* ComparisonItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3E025964E380074E490 /* ComparisonItemTableViewCell.xib */; };
+		E1C9C3E6259663390074E490 /* DailyAdjustmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3E5259663390074E490 /* DailyAdjustmentData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +49,13 @@
 		E1C9C3C5259604C50074E490 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E1C9C3CB259628210074E490 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		E1C9C3CE25962BE10074E490 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E1C9C3D125963B560074E490 /* DailyAdjustedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustedViewController.swift; sourceTree = "<group>"; };
+		E1C9C3D525963FF70074E490 /* SymbolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1C9C3D625963FF70074E490 /* SymbolCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SymbolCollectionViewCell.xib; sourceTree = "<group>"; };
+		E1C9C3DB25964A7B0074E490 /* ComparisonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonTableViewCell.swift; sourceTree = "<group>"; };
+		E1C9C3DC25964A7B0074E490 /* ComparisonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonTableViewCell.xib; sourceTree = "<group>"; };
+		E1C9C3E025964E380074E490 /* ComparisonItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonItemTableViewCell.xib; sourceTree = "<group>"; };
+		E1C9C3E5259663390074E490 /* DailyAdjustmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustmentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C9C39B2595CADC0074E490 /* IntradayViewController.swift */,
+				E1C9C3D125963B560074E490 /* DailyAdjustedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -101,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C9C3A22595CE300074E490 /* Custom TableViewCells */,
+				E1C9C3D425963F750074E490 /* Custom CollectionViewCells */,
 				E12833AA2595AF88009976FB /* Main.storyboard */,
 			);
 			path = View;
@@ -111,6 +127,7 @@
 			children = (
 				E1C9C3A32595CE6E0074E490 /* IntradayTableViewCell.swift */,
 				E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */,
+				E1C9C3E325964ED70074E490 /* Comparison Cell */,
 			);
 			path = "Custom TableViewCells";
 			sourceTree = "<group>";
@@ -146,8 +163,28 @@
 			isa = PBXGroup;
 			children = (
 				E1C9C3BD2595EFC10074E490 /* IntradayData.swift */,
+				E1C9C3E5259663390074E490 /* DailyAdjustmentData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		E1C9C3D425963F750074E490 /* Custom CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E1C9C3D525963FF70074E490 /* SymbolCollectionViewCell.swift */,
+				E1C9C3D625963FF70074E490 /* SymbolCollectionViewCell.xib */,
+			);
+			path = "Custom CollectionViewCells";
+			sourceTree = "<group>";
+		};
+		E1C9C3E325964ED70074E490 /* Comparison Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E1C9C3DB25964A7B0074E490 /* ComparisonTableViewCell.swift */,
+				E1C9C3DC25964A7B0074E490 /* ComparisonTableViewCell.xib */,
+				E1C9C3E025964E380074E490 /* ComparisonItemTableViewCell.xib */,
+			);
+			path = "Comparison Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +245,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12833B12595AF89009976FB /* LaunchScreen.storyboard in Resources */,
+				E1C9C3E125964E380074E490 /* ComparisonItemTableViewCell.xib in Resources */,
 				E1C9C3A62595CE6E0074E490 /* IntradayTableViewCell.xib in Resources */,
+				E1C9C3DE25964A7B0074E490 /* ComparisonTableViewCell.xib in Resources */,
 				E12833AE2595AF89009976FB /* Assets.xcassets in Resources */,
+				E1C9C3D825963FF70074E490 /* SymbolCollectionViewCell.xib in Resources */,
 				E12833AC2595AF88009976FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,13 +263,17 @@
 			files = (
 				E1C9C39C2595CADC0074E490 /* IntradayViewController.swift in Sources */,
 				E1C9C3A52595CE6E0074E490 /* IntradayTableViewCell.swift in Sources */,
+				E1C9C3D725963FF70074E490 /* SymbolCollectionViewCell.swift in Sources */,
 				E1C9C3AB2595D36C0074E490 /* View.swift in Sources */,
+				E1C9C3DD25964A7B0074E490 /* ComparisonTableViewCell.swift in Sources */,
 				E1C9C3C6259604C50074E490 /* ViewController.swift in Sources */,
 				E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */,
 				E12833A52595AF88009976FB /* AppDelegate.swift in Sources */,
+				E1C9C3D225963B560074E490 /* DailyAdjustedViewController.swift in Sources */,
 				E1C9C3BE2595EFC10074E490 /* IntradayData.swift in Sources */,
 				E12833A72595AF88009976FB /* SceneDelegate.swift in Sources */,
 				E1C9C3CF25962BE10074E490 /* Alert.swift in Sources */,
+				E1C9C3E6259663390074E490 /* DailyAdjustmentData.swift in Sources */,
 				E1C9C3CC259628210074E490 /* Enum.swift in Sources */,
 				E1C9C3AF2595D48A0074E490 /* Constant.swift in Sources */,
 			);

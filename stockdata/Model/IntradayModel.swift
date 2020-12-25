@@ -21,9 +21,9 @@ struct IntradayModel {
         performRequest(with: urlString)
     }
     
-    func sort(by option: SortOption, timeSeries: [TimeSerie]) -> [TimeSerie] {
+    func sort(by option: SortOption, timeSeries: [IntradayTimeSerie]) -> [IntradayTimeSerie] {
         
-        var sortedTimeSeries: [TimeSerie] = []
+        var sortedTimeSeries: [IntradayTimeSerie] = []
         
         switch option {
         case SortOption.open:
@@ -67,9 +67,9 @@ struct IntradayModel {
             let decodedData = try decoder.decode(IntradayResponse.self, from: intradayData)
             
             let symbol = decodedData.metaData.the2Symbol
-            var timeSeries: [TimeSerie] = []
+            var timeSeries: [IntradayTimeSerie] = []
             for (key, value) in decodedData.timeSeries5Min {
-                timeSeries.append(TimeSerie(datetime: key, open: value.the1Open, high: value.the2High, low: value.the3Low))
+                timeSeries.append(IntradayTimeSerie(datetime: key, open: value.the1Open, high: value.the2High, low: value.the3Low))
             }
             
             let intraday = Intraday(symbol: symbol, timeSeries: timeSeries)

@@ -46,10 +46,10 @@ struct TimeSeries5Min: Codable {
 
 struct Intraday {
     let symbol: String
-    let timeSeries: [TimeSerie]
+    let timeSeries: [IntradayTimeSerie]
 }
 
-struct TimeSerie {
+struct IntradayTimeSerie {
     let datetime: String
     let open: String
     let high: String
