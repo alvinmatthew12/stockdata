@@ -19,6 +19,7 @@
 		E1C9C3AF2595D48A0074E490 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3AE2595D48A0074E490 /* Constant.swift */; };
 		E1C9C3BE2595EFC10074E490 /* IntradayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3BD2595EFC10074E490 /* IntradayData.swift */; };
 		E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3C02595F1010074E490 /* IntradayModel.swift */; };
+		E1C9C3C6259604C50074E490 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3C5259604C50074E490 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E1C9C3AE2595D48A0074E490 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E1C9C3BD2595EFC10074E490 /* IntradayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData.swift; sourceTree = "<group>"; };
 		E1C9C3C02595F1010074E490 /* IntradayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayModel.swift; sourceTree = "<group>"; };
+		E1C9C3C5259604C50074E490 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C9C3AA2595D36C0074E490 /* View.swift */,
+				E1C9C3C5259604C50074E490 /* ViewController.swift */,
 			);
 			path = "Common Extensions";
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				E1C9C39C2595CADC0074E490 /* IntradayViewController.swift in Sources */,
 				E1C9C3A52595CE6E0074E490 /* IntradayTableViewCell.swift in Sources */,
 				E1C9C3AB2595D36C0074E490 /* View.swift in Sources */,
+				E1C9C3C6259604C50074E490 /* ViewController.swift in Sources */,
 				E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */,
 				E12833A52595AF88009976FB /* AppDelegate.swift in Sources */,
 				E1C9C3BE2595EFC10074E490 /* IntradayData.swift in Sources */,

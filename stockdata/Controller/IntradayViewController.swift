@@ -24,8 +24,15 @@ class IntradayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAnywhere()
+        
+        symbolLabel.isHidden = timeSeries.count > 0 ? false : true
+        sortButton.isHidden = timeSeries.count > 0 ? false : true
+        
         intradayModel.delegate = self
         intradayModel.fetchIntraday(symbol: "AIA")
+        
+        searchBar.delegate = self
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -56,11 +63,34 @@ class IntradayViewController: UIViewController {
     
 }
 
+// MARK:- UISearchBarDelegate
+
+extension IntradayViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        intradayModel.fetchIntraday(symbol: searchBar.text!.uppercased())
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            intradayModel.fetchIntraday(symbol: "AIA")
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
+}
+
+
+// MARK:- IntradayModelDelegate
+
 extension IntradayViewController: IntradayModelDelegate {
     func didUpdateIntraday(_ intradayModel: IntradayModel, intraday: Intraday) {
         DispatchQueue.main.async { [self] in
             symbolLabel.text = intraday.symbol
             timeSeries = intraday.timeSeries
+            symbolLabel.isHidden = false
+            sortButton.isHidden = false
             tableView.reloadData()
         }
     }
