@@ -21,6 +21,24 @@ struct IntradayModel {
         performRequest(with: urlString)
     }
     
+    func sort(by option: SortOption, timeSeries: [TimeSerie]) -> [TimeSerie] {
+        
+        var sortedTimeSeries: [TimeSerie] = []
+        
+        switch option {
+        case SortOption.open:
+            sortedTimeSeries = timeSeries.sorted { $1.open < $0.open }
+        case SortOption.high:
+            sortedTimeSeries = timeSeries.sorted { $1.high < $0.high }
+        case SortOption.low:
+            sortedTimeSeries = timeSeries.sorted { $1.low < $0.low }
+        case SortOption.datetime:
+            sortedTimeSeries = timeSeries.sorted { $1.datetime < $0.datetime }
+        }
+        
+        return sortedTimeSeries
+    }
+    
     private func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
