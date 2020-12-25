@@ -104,6 +104,7 @@ extension IntradayViewController: IntradayModelDelegate {
             symbolLabel.text = intraday.symbol
             timeSeries = intraday.timeSeries
             sortButton.isHidden = false
+            sortButton.setTitle("sort by", for: .normal)
             tableView.reloadData()
         }
     }
