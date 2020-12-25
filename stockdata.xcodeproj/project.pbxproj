@@ -28,7 +28,8 @@
 		E1C9C3DD25964A7B0074E490 /* ComparisonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3DB25964A7B0074E490 /* ComparisonTableViewCell.swift */; };
 		E1C9C3DE25964A7B0074E490 /* ComparisonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3DC25964A7B0074E490 /* ComparisonTableViewCell.xib */; };
 		E1C9C3E125964E380074E490 /* ComparisonItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3E025964E380074E490 /* ComparisonItemTableViewCell.xib */; };
-		E1C9C3E6259663390074E490 /* DailyAdjustmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3E5259663390074E490 /* DailyAdjustmentData.swift */; };
+		E1C9C3E6259663390074E490 /* DailyAdjustedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3E5259663390074E490 /* DailyAdjustedData.swift */; };
+		E1C9C3E9259666710074E490 /* DailyAdjustedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3E8259666710074E490 /* DailyAdjustedModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,8 @@
 		E1C9C3DB25964A7B0074E490 /* ComparisonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonTableViewCell.swift; sourceTree = "<group>"; };
 		E1C9C3DC25964A7B0074E490 /* ComparisonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonTableViewCell.xib; sourceTree = "<group>"; };
 		E1C9C3E025964E380074E490 /* ComparisonItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComparisonItemTableViewCell.xib; sourceTree = "<group>"; };
-		E1C9C3E5259663390074E490 /* DailyAdjustmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustmentData.swift; sourceTree = "<group>"; };
+		E1C9C3E5259663390074E490 /* DailyAdjustedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustedData.swift; sourceTree = "<group>"; };
+		E1C9C3E8259666710074E490 /* DailyAdjustedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustedModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C9C3C02595F1010074E490 /* IntradayModel.swift */,
+				E1C9C3E8259666710074E490 /* DailyAdjustedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C9C3BD2595EFC10074E490 /* IntradayData.swift */,
-				E1C9C3E5259663390074E490 /* DailyAdjustmentData.swift */,
+				E1C9C3E5259663390074E490 /* DailyAdjustedData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -269,11 +272,12 @@
 				E1C9C3C6259604C50074E490 /* ViewController.swift in Sources */,
 				E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */,
 				E12833A52595AF88009976FB /* AppDelegate.swift in Sources */,
+				E1C9C3E9259666710074E490 /* DailyAdjustedModel.swift in Sources */,
 				E1C9C3D225963B560074E490 /* DailyAdjustedViewController.swift in Sources */,
 				E1C9C3BE2595EFC10074E490 /* IntradayData.swift in Sources */,
 				E12833A72595AF88009976FB /* SceneDelegate.swift in Sources */,
 				E1C9C3CF25962BE10074E490 /* Alert.swift in Sources */,
-				E1C9C3E6259663390074E490 /* DailyAdjustmentData.swift in Sources */,
+				E1C9C3E6259663390074E490 /* DailyAdjustedData.swift in Sources */,
 				E1C9C3CC259628210074E490 /* Enum.swift in Sources */,
 				E1C9C3AF2595D48A0074E490 /* Constant.swift in Sources */,
 			);

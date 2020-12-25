@@ -13,33 +13,10 @@ class DailyAdjustedViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    var addedSymbols: [String] = ["AIA", "AAPL", "IBM"]
-    var dailyAdjustedData: [DailyComparison] = [
-        DailyComparison(
-            date: "2020-12-24",
-            timeSeries: [
-                DailyTimeSerie(symbol: "AIA", open: "84.0000", low: "84.0000"),
-                DailyTimeSerie(symbol: "AAPL", open: "84.0000", low: "124.21"),
-                DailyTimeSerie(symbol: "IBM", open: "84.0000", low: "84.0000"),
-            ]
-        ),
-        DailyComparison(
-            date: "2020-12-23",
-            timeSeries: [
-                DailyTimeSerie(symbol: "AIA", open: "84.0000", low: "84.0000"),
-                DailyTimeSerie(symbol: "AAPL", open: "84.0000", low: "84.0000"),
-                DailyTimeSerie(symbol: "IBM", open: "84.0000", low: "124.21"),
-            ]
-        ),
-        DailyComparison(
-            date: "2020-12-22",
-            timeSeries: [
-                DailyTimeSerie(symbol: "AIA", open: "84.0000", low: "124.21"),
-                DailyTimeSerie(symbol: "AAPL", open: "84.0000", low: "84.0000"),
-                DailyTimeSerie(symbol: "IBM", open: "84.0000", low: "84.0000"),
-            ]
-        ),
-    ]
+    var dailyAdjustedModel = DailyAdjustedModel()
+    
+    var addedSymbols: [String] = []
+    var dailyComparisons: [DailyComparison] = []
     
     override func viewWillAppear(_ animated: Bool) {
         title = "Daily Adjusted Data"
@@ -48,7 +25,12 @@ class DailyAdjustedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.hideKeyboardWhenTappedAnywhere()
+        
+        dailyAdjustedModel.delegate = self
+        
+        dailyAdjustedModel.fetchDailyAdjusted(symbol: "AIA")
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -59,6 +41,27 @@ class DailyAdjustedViewController: UIViewController {
         tableView.register(UINib(nibName: K.Cell.comparisonTableViewCell, bundle: nil), forCellReuseIdentifier: K.Cell.comparisonTableViewCell)
     }
 
+}
+
+
+// MARK:- DailyAdjustedModelDelegate, Manipulate Data
+
+extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
+    func didUpdateDailyAdjusted(_ dailyAdjustedModel: DailyAdjustedModel, dailyComparison: [DailyComparison]) {
+        DispatchQueue.main.async { [self] in
+            addedSymbols.append(dailyComparison[0].timeSeries[0].symbol)
+            dailyComparisons = dailyAdjustedModel.addDailyComparison(dailyComparison)
+            print(dailyComparison)
+            collectionView.reloadData()
+            tableView.reloadData()
+        }
+    }
+    
+    func didFailWithError(error: Error, errorMessage: String) {
+        print(error)
+    }
+    
+    
 }
 
 // MARK:- CollectionView DataSource, Delegate
@@ -94,14 +97,14 @@ extension DailyAdjustedViewController: UICollectionViewDelegate, UICollectionVie
 
 extension DailyAdjustedViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyAdjustedData.count
+        return dailyComparisons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cell.comparisonTableViewCell, for: indexPath) as! ComparisonTableViewCell
         cell.selectionStyle = .none
-        cell.date = dailyAdjustedData[indexPath.row].date
-        cell.timeSeries = dailyAdjustedData[indexPath.row].timeSeries
+        cell.date = dailyComparisons[indexPath.row].date
+        cell.timeSeries = dailyComparisons[indexPath.row].timeSeries
         return cell
     }
     

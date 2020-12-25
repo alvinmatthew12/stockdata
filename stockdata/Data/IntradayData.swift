@@ -8,7 +8,7 @@
 import Foundation
 
 struct IntradayResponse: Codable {
-    let metaData: MetaData
+    let metaData: IntradayMetaData
     let timeSeries5Min: [String: TimeSeries5Min]
 
     enum CodingKeys: String, CodingKey {
@@ -17,9 +17,8 @@ struct IntradayResponse: Codable {
     }
 }
 
-struct MetaData: Codable {
-    let the1Information, the2Symbol, the3LastRefreshed, the4Interval: String
-    let the5OutputSize, the6TimeZone: String
+struct IntradayMetaData: Codable {
+    let the1Information, the2Symbol, the3LastRefreshed, the4Interval, the5OutputSize, the6TimeZone: String
 
     enum CodingKeys: String, CodingKey {
         case the1Information = "1. Information"
@@ -32,8 +31,7 @@ struct MetaData: Codable {
 }
 
 struct TimeSeries5Min: Codable {
-    let the1Open, the2High, the3Low, the4Close: String
-    let the5Volume: String
+    let the1Open, the2High, the3Low, the4Close, the5Volume: String
 
     enum CodingKeys: String, CodingKey {
         case the1Open = "1. open"
