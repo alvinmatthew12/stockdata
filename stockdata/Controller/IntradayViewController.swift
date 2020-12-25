@@ -14,12 +14,18 @@ class IntradayViewController: UIViewController {
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var intradayModel = IntradayModel()
+    var timeSeries: [TimeSerie] = []
+    
     override func viewWillAppear(_ animated: Bool) {
         title = "Intraday Data"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        intradayModel.delegate = self
+        intradayModel.fetchIntraday(symbol: "AIA")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -50,16 +56,34 @@ class IntradayViewController: UIViewController {
     
 }
 
+extension IntradayViewController: IntradayModelDelegate {
+    func didUpdateIntraday(_ intradayModel: IntradayModel, intraday: Intraday) {
+        DispatchQueue.main.async { [self] in
+            symbolLabel.text = intraday.symbol
+            timeSeries = intraday.timeSeries
+            tableView.reloadData()
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}
+
 // MARK:- TableView DataSource, Delegage
 
 extension IntradayViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return timeSeries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cell.intradayTableViewCell, for: indexPath) as! IntradayTableViewCell
         cell.selectionStyle = .none
+        cell.openValueLabel.text = timeSeries[indexPath.row].open
+        cell.highValueLabel.text = timeSeries[indexPath.row].high
+        cell.lowValueLabel.text = timeSeries[indexPath.row].low
+        cell.datetimeLabel.text = timeSeries[indexPath.row].datetime
         return cell
     }
     

@@ -17,6 +17,8 @@
 		E1C9C3A62595CE6E0074E490 /* IntradayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */; };
 		E1C9C3AB2595D36C0074E490 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3AA2595D36C0074E490 /* View.swift */; };
 		E1C9C3AF2595D48A0074E490 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3AE2595D48A0074E490 /* Constant.swift */; };
+		E1C9C3BE2595EFC10074E490 /* IntradayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3BD2595EFC10074E490 /* IntradayData.swift */; };
+		E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3C02595F1010074E490 /* IntradayModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntradayTableViewCell.xib; sourceTree = "<group>"; };
 		E1C9C3AA2595D36C0074E490 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E1C9C3AE2595D48A0074E490 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		E1C9C3BD2595EFC10074E490 /* IntradayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData.swift; sourceTree = "<group>"; };
+		E1C9C3C02595F1010074E490 /* IntradayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +70,9 @@
 			children = (
 				E12833A42595AF88009976FB /* AppDelegate.swift */,
 				E12833A62595AF88009976FB /* SceneDelegate.swift */,
-				E1C9C39E2595CAE30074E490 /* Controller */,
+				E1C9C3BC2595EF9F0074E490 /* Model */,
 				E1C9C3A02595CAEA0074E490 /* View */,
+				E1C9C39E2595CAE30074E490 /* Controller */,
 				E1C9C3A92595D3460074E490 /* Common Extensions */,
 				E1C9C3B12595D48E0074E490 /* Helpers */,
 				E12833AD2595AF89009976FB /* Assets.xcassets */,
@@ -117,6 +122,15 @@
 				E1C9C3AE2595D48A0074E490 /* Constant.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E1C9C3BC2595EF9F0074E490 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1C9C3BD2595EFC10074E490 /* IntradayData.swift */,
+				E1C9C3C02595F1010074E490 /* IntradayModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +207,9 @@
 				E1C9C39C2595CADC0074E490 /* IntradayViewController.swift in Sources */,
 				E1C9C3A52595CE6E0074E490 /* IntradayTableViewCell.swift in Sources */,
 				E1C9C3AB2595D36C0074E490 /* View.swift in Sources */,
+				E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */,
 				E12833A52595AF88009976FB /* AppDelegate.swift in Sources */,
+				E1C9C3BE2595EFC10074E490 /* IntradayData.swift in Sources */,
 				E12833A72595AF88009976FB /* SceneDelegate.swift in Sources */,
 				E1C9C3AF2595D48A0074E490 /* Constant.swift in Sources */,
 			);
