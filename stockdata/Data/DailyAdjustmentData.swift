@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DailyAdjustment {
+struct DailyComparison {
     let date: String
     let timeSeries: [DailyTimeSerie]
 }

@@ -14,8 +14,8 @@ class DailyAdjustedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var addedSymbols: [String] = ["AIA", "AAPL", "IBM"]
-    var dailyAdjustedData: [DailyAdjustment] = [
-        DailyAdjustment(
+    var dailyAdjustedData: [DailyComparison] = [
+        DailyComparison(
             date: "2020-12-24",
             timeSeries: [
                 DailyTimeSerie(symbol: "AIA", open: "84.0000", low: "84.0000"),
@@ -23,7 +23,7 @@ class DailyAdjustedViewController: UIViewController {
                 DailyTimeSerie(symbol: "IBM", open: "84.0000", low: "84.0000"),
             ]
         ),
-        DailyAdjustment(
+        DailyComparison(
             date: "2020-12-23",
             timeSeries: [
                 DailyTimeSerie(symbol: "AIA", open: "84.0000", low: "84.0000"),
@@ -31,7 +31,7 @@ class DailyAdjustedViewController: UIViewController {
                 DailyTimeSerie(symbol: "IBM", open: "84.0000", low: "124.21"),
             ]
         ),
-        DailyAdjustment(
+        DailyComparison(
             date: "2020-12-22",
             timeSeries: [
                 DailyTimeSerie(symbol: "AIA", open: "84.0000", low: "124.21"),
