@@ -75,6 +75,11 @@ class IntradayViewController: UIViewController {
 
 extension IntradayViewController: UISearchBarDelegate {
     
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.text = ""
+        return true
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         intradayModel.fetchIntraday(symbol: searchBar.text!.uppercased())
         view.endEditing(true)
