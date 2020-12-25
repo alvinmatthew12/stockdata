@@ -25,7 +25,6 @@ class DailyAdjustedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.hideKeyboardWhenTappedAnywhere()
         
         dailyAdjustedModel.delegate = self
@@ -41,7 +40,12 @@ class DailyAdjustedViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: K.Cell.comparisonTableViewCell, bundle: nil), forCellReuseIdentifier: K.Cell.comparisonTableViewCell)
     }
-
+    
+    func showErrorAlert(message: String) {
+        let alertHelper = AlertHelper()
+        let alert: UIAlertController = alertHelper.showAlert(title: "Error", message: message)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK:- UISearchBarDelegate
@@ -80,7 +84,7 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
     }
     
     func didFailWithError(error: Error, errorMessage: String) {
-        print(error)
+        showErrorAlert(message: errorMessage)
     }
     
     func removeSymbol(_ symbol: String) {
