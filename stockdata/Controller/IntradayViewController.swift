@@ -26,7 +26,7 @@ class IntradayViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAnywhere()
         
-        symbolLabel.isHidden = timeSeries.count > 0 ? false : true
+        symbolLabel.text = "--"
         sortButton.isHidden = timeSeries.count > 0 ? false : true
         
         intradayModel.delegate = self
@@ -71,11 +71,11 @@ extension IntradayViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         intradayModel.fetchIntraday(symbol: searchBar.text!.uppercased())
+        view.endEditing(true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
-            intradayModel.fetchIntraday(symbol: "AIA")
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
@@ -91,7 +91,6 @@ extension IntradayViewController: IntradayModelDelegate {
         DispatchQueue.main.async { [self] in
             symbolLabel.text = intraday.symbol
             timeSeries = intraday.timeSeries
-            symbolLabel.isHidden = false
             sortButton.isHidden = false
             tableView.reloadData()
         }
@@ -106,16 +105,20 @@ extension IntradayViewController: IntradayModelDelegate {
 
 extension IntradayViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timeSeries.count
+        return timeSeries.count > 0 ? timeSeries.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Cell.intradayTableViewCell, for: indexPath) as! IntradayTableViewCell
         cell.selectionStyle = .none
-        cell.openValueLabel.text = timeSeries[indexPath.row].open
-        cell.highValueLabel.text = timeSeries[indexPath.row].high
-        cell.lowValueLabel.text = timeSeries[indexPath.row].low
-        cell.datetimeLabel.text = timeSeries[indexPath.row].datetime
+        
+        if timeSeries.count > 0 {
+            cell.openValueLabel.text = timeSeries[indexPath.row].open
+            cell.highValueLabel.text = timeSeries[indexPath.row].high
+            cell.lowValueLabel.text = timeSeries[indexPath.row].low
+            cell.datetimeLabel.text = timeSeries[indexPath.row].datetime
+        }
+        
         return cell
     }
     

@@ -19,6 +19,10 @@ class IntradayTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         cardView.addShadow(radius: 12)
+        openValueLabel.text = "0"
+        highValueLabel.text = "0"
+        lowValueLabel.text = "0"
+        datetimeLabel.text = "0000-00-00 00:00:00"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
