@@ -35,6 +35,16 @@ struct DailyAdjustedModel {
         return newDailyComparison.sorted { $1.date < $0.date }
     }
     
+    func removeDailyComparison(_ dailyComparison: [DailyComparison], symbol: String) -> [DailyComparison] {
+        var updatedDailyComparison: [DailyComparison] = dailyComparison
+        for (index, comparison) in updatedDailyComparison.enumerated() {
+            if let serieIndex = comparison.timeSeries.firstIndex(where: { $0.symbol == symbol }) {
+                updatedDailyComparison[index].timeSeries.remove(at: serieIndex)
+            }
+        }
+        return updatedDailyComparison.sorted { $1.date < $0.date }
+    }
+    
     private func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)

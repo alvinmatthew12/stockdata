@@ -83,6 +83,14 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
         print(error)
     }
     
+    func removeSymbol(_ symbol: String) {
+        if let index = addedSymbols.firstIndex(of: symbol) {
+            addedSymbols.remove(at: index)
+            dailyComparisons = addedSymbols.count > 0 ? dailyAdjustedModel.removeDailyComparison(dailyComparisons, symbol: symbol) : []
+            collectionView.reloadData()
+            tableView.reloadData()
+        }
+    }
     
 }
 
@@ -112,6 +120,10 @@ extension DailyAdjustedViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        removeSymbol(addedSymbols[indexPath.row])
     }
 }
 
