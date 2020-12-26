@@ -112,6 +112,10 @@ extension IntradayViewController: IntradayModelDelegate {
     func didFailWithError(error: Error, errorMessage: String) {
         showErrorAlert(message: errorMessage)
     }
+    
+    func didFailWithoutError(errorMessage: String) {
+        showErrorAlert(message: errorMessage)
+    }
 }
 
 // MARK:- TableView DataSource, Delegage

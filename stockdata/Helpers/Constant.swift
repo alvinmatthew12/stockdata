@@ -29,4 +29,8 @@ struct K {
         static let interval = "interval"
         static let outputsize = "outputsize"
     }
+    
+    struct KeyChainKey {
+        static let apiKey = "APIKey"
+    }
 }

@@ -86,6 +86,7 @@ extension DailyAdjustedViewController: UISearchBarDelegate {
 // MARK:- DailyAdjustedModelDelegate, Manipulate Data
 
 extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
+    
     func didUpdateDailyAdjusted(_ dailyAdjustedModel: DailyAdjustedModel, dailyComparison: [DailyComparison]) {
         DispatchQueue.main.async { [self] in
             addedSymbols.append(dailyComparison[0].timeSeries[0].symbol)
@@ -96,6 +97,10 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
     }
     
     func didFailWithError(error: Error, errorMessage: String) {
+        showAlert(message: errorMessage)
+    }
+    
+    func didFailWithoutError(errorMessage: String) {
         showAlert(message: errorMessage)
     }
     

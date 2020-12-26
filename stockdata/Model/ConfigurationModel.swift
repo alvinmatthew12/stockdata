@@ -39,4 +39,17 @@ struct ConfigurationModel {
         defaults.setValue(value, forKey: K.UserDefaultKey.outputsize)
     }
     
+    func setDefaultAPIKey() {
+        if !KeychainWrapper.standard.hasValue(forKey: K.KeyChainKey.apiKey) {
+            KeychainWrapper.standard.set("SINALNWR6553GGBL", forKey: K.KeyChainKey.apiKey)
+        }
+    }
+    
+    func getAPIKey() -> String? {
+        if let apiKey = KeychainWrapper.standard.string(forKey: K.KeyChainKey.apiKey) {
+            return apiKey
+        }
+        return nil
+    }
+    
 }

@@ -10,22 +10,30 @@ import Foundation
 protocol DailyAdjustedModelDelegate {
     func didUpdateDailyAdjusted(_ dailyAdjustedModel: DailyAdjustedModel, dailyComparison: [DailyComparison])
     func didFailWithError(error: Error, errorMessage: String)
+    func didFailWithoutError(errorMessage: String)
 }
 
 struct DailyAdjustedModel {
     
-    let apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&apikey=SINALNWR6553GGBL"
+    let apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED"
     var delegate: DailyAdjustedModelDelegate?
     
-    func setApiURL() -> String {
+    func setupApiURL() -> String? {
         let configurationModel = ConfigurationModel()
         let parameters = configurationModel.getParameters()
-        return "\(apiURL)&outputsize=\(parameters.outputsize)"
+        if let apiKey = configurationModel.getAPIKey() {
+            return "\(apiURL)&outputsize=\(parameters.outputsize)&apikey=\(apiKey)"
+        } else {
+            delegate?.didFailWithoutError(errorMessage: "Invalid API Key")
+            return nil
+        }
     }
     
     func fetchDailyAdjusted(symbol: String) {
-        let urlString = "\(setApiURL())&symbol=\(symbol)"
-        performRequest(with: urlString)
+        if let setupApiUrl = setupApiURL() {
+            let urlString = "\(setupApiUrl)&symbol=\(symbol)"
+            performRequest(with: urlString)
+        }
     }
     
     func addDailyComparison(currentDailyComparison: [DailyComparison], newDailyComparison: [DailyComparison], numberOfSymbols: Int) -> [DailyComparison] {

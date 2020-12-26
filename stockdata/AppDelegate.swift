@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let configurationModel = ConfigurationModel()
         configurationModel.setDefaultParameters()
+        configurationModel.setDefaultAPIKey()
         
         return true
     }

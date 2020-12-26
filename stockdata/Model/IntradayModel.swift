@@ -10,21 +10,29 @@ import Foundation
 protocol IntradayModelDelegate {
     func didUpdateIntraday(_ intradayModel: IntradayModel, intraday: Intraday)
     func didFailWithError(error: Error, errorMessage: String)
+    func didFailWithoutError(errorMessage: String)
 }
 
 struct IntradayModel {
-    let apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&apikey=SINALNWR6553GGBL"
+    let apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY"
     var delegate: IntradayModelDelegate?
     
-    func setApiURL() -> String {
+    func setupApiURL() -> String? {
         let configurationModel = ConfigurationModel()
         let parameters = configurationModel.getParameters()
-        return "\(apiURL)&interval=\(parameters.interval)&outputsize=\(parameters.outputsize)"
+        if let apiKey = configurationModel.getAPIKey() {
+            return "\(apiURL)&interval=\(parameters.interval)&outputsize=\(parameters.outputsize)&apikey=\(apiKey)"
+        } else {
+            delegate?.didFailWithoutError(errorMessage: "Invalid API Key")
+            return nil
+        }
     }
     
     func fetchIntraday(symbol: String) {
-        let urlString = "\(setApiURL())&symbol=\(symbol)"
-        performRequest(with: urlString)
+        if let setupApiUrl = setupApiURL() {
+            let urlString = "\(setupApiUrl)&symbol=\(symbol)"
+            performRequest(with: urlString)
+        }
     }
     
     func sort(by option: SortOption, timeSeries: [IntradayTimeSerie]) -> [IntradayTimeSerie] {

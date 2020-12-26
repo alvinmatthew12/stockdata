@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E106DAC42597963A0004317C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E106DAC32597963A0004317C /* TextField.swift */; };
 		E106DACB2597A65F0004317C /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E106DACA2597A65F0004317C /* ConfigurationModel.swift */; };
+		E106DAD62597D2310004317C /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E106DAD42597D2310004317C /* KeychainWrapper.swift */; };
+		E106DAD72597D2310004317C /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E106DAD52597D2310004317C /* KeychainItemAccessibility.swift */; };
 		E12833A52595AF88009976FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12833A42595AF88009976FB /* AppDelegate.swift */; };
 		E12833A72595AF88009976FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12833A62595AF88009976FB /* SceneDelegate.swift */; };
 		E12833AC2595AF88009976FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12833AA2595AF88009976FB /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		E106DAC32597963A0004317C /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		E106DACA2597A65F0004317C /* ConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationModel.swift; sourceTree = "<group>"; };
+		E106DAD42597D2310004317C /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		E106DAD52597D2310004317C /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		E12833A12595AF88009976FB /* stockdata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stockdata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12833A42595AF88009976FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12833A62595AF88009976FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				E1C9C3AE2595D48A0074E490 /* Constant.swift */,
 				E1C9C3CB259628210074E490 /* Enum.swift */,
 				E1C9C3CE25962BE10074E490 /* Alert.swift */,
+				E106DAD52597D2310004317C /* KeychainItemAccessibility.swift */,
+				E106DAD42597D2310004317C /* KeychainWrapper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				E1C9C39C2595CADC0074E490 /* IntradayViewController.swift in Sources */,
 				E1C9C3A52595CE6E0074E490 /* IntradayTableViewCell.swift in Sources */,
 				E1C9C3D725963FF70074E490 /* SymbolCollectionViewCell.swift in Sources */,
+				E106DAD62597D2310004317C /* KeychainWrapper.swift in Sources */,
 				E106DAC42597963A0004317C /* TextField.swift in Sources */,
 				E1C9C3AB2595D36C0074E490 /* View.swift in Sources */,
 				E1C9C3DD25964A7B0074E490 /* ComparisonTableViewCell.swift in Sources */,
@@ -309,6 +316,7 @@
 				E1809AC82597441F00A5C44E /* PickerViewTableViewCell.swift in Sources */,
 				E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */,
 				E12833A52595AF88009976FB /* AppDelegate.swift in Sources */,
+				E106DAD72597D2310004317C /* KeychainItemAccessibility.swift in Sources */,
 				E1C9C3E9259666710074E490 /* DailyAdjustedModel.swift in Sources */,
 				E106DACB2597A65F0004317C /* ConfigurationModel.swift in Sources */,
 				E1809ABE259728CD00A5C44E /* ConfigurationViewController.swift in Sources */,
