@@ -12,9 +12,14 @@ struct Parameter {
     let outputsize: String
 }
 
+protocol ConfigurationModelDelegate {
+    func didCheckAPIKey(isValid: Bool)
+}
+
 struct ConfigurationModel {
     
     let defaults = UserDefaults.standard
+    var delegate: ConfigurationModelDelegate?
     
     func setDefaultParameters() {
         if defaults.object(forKey: K.UserDefaultKey.interval) == nil {
@@ -45,11 +50,29 @@ struct ConfigurationModel {
         }
     }
     
+    func updateAPIKey(_ value: String) {
+        KeychainWrapper.standard.set(value, forKey: K.KeyChainKey.apiKey)
+    }
+    
     func getAPIKey() -> String? {
         if let apiKey = KeychainWrapper.standard.string(forKey: K.KeyChainKey.apiKey) {
             return apiKey
         }
         return nil
+    }
+    
+    func checkAPIKey(_ apiKey: String) {
+        let apiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=IBM&apikey=\(apiKey)"
+        if let url = URL(string: apiUrl) {
+            URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    delegate?.didCheckAPIKey(isValid: false)
+                    return
+                }
+                delegate?.didCheckAPIKey(isValid: true)
+                return
+            }.resume()
+        }
     }
     
 }

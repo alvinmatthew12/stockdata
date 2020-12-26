@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditAPIKeyViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     let intervalValueLabel = UILabel()
@@ -18,11 +18,12 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
     
     var intervalValue: String = ""
     var outputsizeValue: String = ""
+    var apiKeyValue: String = "Change API Key"
     
     var showIntervalPicker: Bool = false
     var showOutputsizePicker: Bool = false
     
-    let configurationModel = ConfigurationModel()
+    var configurationModel = ConfigurationModel()
     
     override func viewWillAppear(_ animated: Bool) {
         title = "Configuration"
@@ -38,6 +39,21 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
         let parameters = configurationModel.getParameters()
         intervalValue = parameters.interval
         outputsizeValue = parameters.outputsize
+        if let apiKey = configurationModel.getAPIKey() {
+            apiKeyValue = apiKey
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == K.Segue.configurationToEditAPIKey) {
+            let editAPIKeyVC = segue.destination as! EditAPIKeyViewController
+            editAPIKeyVC.delegate = self
+        }
+    }
+    
+    func didUpdateAPIKey(newApiKey: String) {
+        apiKeyValue = newApiKey
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,7 +75,7 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
         
         if tableContents[indexPath.section][indexPath.row] == "api" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel?.text = "SINALNWR6553GGBL"
+            cell.textLabel?.text = apiKeyValue
             cell.accessoryType = .disclosureIndicator
             return cell
         }

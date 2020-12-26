@@ -7,11 +7,20 @@
 
 import UIKit
 
-class EditAPIKeyViewController: UIViewController {
+protocol EditAPIKeyViewControllerDelegate {
+    func didUpdateAPIKey(newApiKey: String)
+}
+
+class EditAPIKeyViewController: UIViewController, ConfigurationModelDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var errorMessageLabel: UILabel!
-    @IBOutlet weak var generateButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var configurationModel = ConfigurationModel()
+    var delegate: EditAPIKeyViewControllerDelegate?
+    
+    var newApiKey: String = ""
     
     override func viewWillAppear(_ animated: Bool) {
         title = "API Key"
@@ -27,45 +36,67 @@ class EditAPIKeyViewController: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAnywhere()
+        textField.delegate = self
         
         errorMessageLabel.isHidden = true
-        generateButton.isHidden = true
         
         textField.addBorder(radius: 12, color: UIColor(named: K.Color.grey)!.cgColor)
         textField.addPadding(padding: .equalSpacing(20))
         
-        textField.text = "SINALNWR6553GGBL"
-    }
-    
-    @IBAction func savePressed(_ sender: UIBarButtonItem) {
-        let isAPIKeyValid = checkAPIKey()
-        if isAPIKeyValid {
-            navigationController?.popViewController(animated: true)
+        configurationModel.delegate = self
+        if let apiKey = configurationModel.getAPIKey() {
+            textField.text = apiKey
         }
     }
     
-    @IBAction func generateAPIKeyPressed(_ sender: UIButton) {
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
+        checkAPIKey()
     }
     
-    func checkAPIKey() -> Bool {
-        let saveButton = navigationItem.rightBarButtonItem
-        saveButton?.isEnabled = false
+    func checkAPIKey() {
+        saveButton.isEnabled = false
         if textField.text == nil || textField.text == "" {
             saveButton?.isEnabled = true
             errorMessageLabel.text = "API Key can't be empty"
             errorMessageLabel.isHidden = false
+            return
+        }
+        newApiKey = textField.text!
+        configurationModel.checkAPIKey(newApiKey)
+    }
+    
+    func didCheckAPIKey(isValid: Bool) {
+        DispatchQueue.main.async { [self] in
+            if isValid == true {
+                configurationModel.updateAPIKey(newApiKey)
+                delegate?.didUpdateAPIKey(newApiKey: newApiKey)
+                navigationController?.popViewController(animated: true)
+            } else {
+                saveButton.isEnabled = true
+                errorMessageLabel.text = "Invalid API Key"
+                errorMessageLabel.isHidden = false
+            }
+        }
+    }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension EditAPIKeyViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            errorMessageLabel.isHidden = true
+            return true
+        } else {
+            textField.placeholder = "Enter API keys..."
+            errorMessageLabel.text = "API Key can't be empty"
+            errorMessageLabel.isHidden = false
             return false
         }
-        // code here to check API Key
-        if textField.text == "SINALNWR6553GGBL" {
-            saveButton?.isEnabled = true
-            return true
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [self] in
-            saveButton?.isEnabled = true
-            errorMessageLabel.text = "Invalid API Key"
-            errorMessageLabel.isHidden = false
-        }
-        return false
     }
 }

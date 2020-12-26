@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kf4-F1-pAO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="brw-ll-957">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -197,43 +197,23 @@
                                     <constraint firstAttribute="height" constant="45" id="lna-3k-tGq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1U3-rc-RNu">
-                                <rect key="frame" x="30" y="183" width="354" height="61.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid API Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qt-YN-dCs">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4D-qv-0i2">
-                                        <rect key="frame" x="0.0" y="28.5" width="169" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Generate new API Key"/>
-                                        <connections>
-                                            <action selector="generateAPIKeyPressed:" destination="sD1-jv-8Q2" eventType="touchUpInside" id="sEh-vi-vZm"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="0qt-YN-dCs" firstAttribute="top" secondItem="1U3-rc-RNu" secondAttribute="top" id="6lT-Df-vfM"/>
-                                    <constraint firstAttribute="bottom" secondItem="N4D-qv-0i2" secondAttribute="bottom" id="DwW-Bo-bxH"/>
-                                    <constraint firstAttribute="trailing" secondItem="0qt-YN-dCs" secondAttribute="trailing" id="Sf2-rQ-i4p"/>
-                                    <constraint firstItem="N4D-qv-0i2" firstAttribute="leading" secondItem="1U3-rc-RNu" secondAttribute="leading" id="dsn-9r-yfU"/>
-                                    <constraint firstItem="0qt-YN-dCs" firstAttribute="leading" secondItem="1U3-rc-RNu" secondAttribute="leading" id="wUc-Fv-4Uz"/>
-                                </constraints>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid API Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qt-YN-dCs">
+                                <rect key="frame" x="30" y="183" width="354" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gdG-7w-CQv"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="0qt-YN-dCs" firstAttribute="leading" secondItem="gdG-7w-CQv" secondAttribute="leading" constant="30" id="AZk-7K-seo"/>
                             <constraint firstItem="sB7-9K-6q0" firstAttribute="top" secondItem="gdG-7w-CQv" secondAttribute="top" constant="40" id="DkA-Ow-BrC"/>
-                            <constraint firstItem="gdG-7w-CQv" firstAttribute="trailing" secondItem="1U3-rc-RNu" secondAttribute="trailing" constant="30" id="Id8-jh-hZe"/>
-                            <constraint firstItem="1U3-rc-RNu" firstAttribute="top" secondItem="sB7-9K-6q0" secondAttribute="bottom" constant="10" id="Is9-mz-pqd"/>
+                            <constraint firstItem="gdG-7w-CQv" firstAttribute="trailing" secondItem="0qt-YN-dCs" secondAttribute="trailing" constant="30" id="Kb0-5v-Bq3"/>
                             <constraint firstItem="gdG-7w-CQv" firstAttribute="trailing" secondItem="sB7-9K-6q0" secondAttribute="trailing" constant="20" id="M5w-Iy-220"/>
-                            <constraint firstItem="1U3-rc-RNu" firstAttribute="leading" secondItem="gdG-7w-CQv" secondAttribute="leading" constant="30" id="grJ-KB-G2E"/>
+                            <constraint firstItem="0qt-YN-dCs" firstAttribute="top" secondItem="sB7-9K-6q0" secondAttribute="bottom" constant="10" id="Rjm-BT-F9c"/>
                             <constraint firstItem="sB7-9K-6q0" firstAttribute="leading" secondItem="gdG-7w-CQv" secondAttribute="leading" constant="20" id="sWX-lx-Xiu"/>
                         </constraints>
                     </view>
@@ -246,7 +226,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="errorMessageLabel" destination="0qt-YN-dCs" id="Mcm-HN-rwh"/>
-                        <outlet property="generateButton" destination="N4D-qv-0i2" id="L1s-R9-1Kz"/>
+                        <outlet property="saveButton" destination="lnK-0A-Gh8" id="UVu-Wf-ZP2"/>
                         <outlet property="textField" destination="sB7-9K-6q0" id="4cZ-xl-7oI"/>
                     </connections>
                 </viewController>
