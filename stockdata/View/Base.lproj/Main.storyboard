@@ -175,11 +175,84 @@
                     <navigationItem key="navigationItem" id="M1y-Q2-EtI"/>
                     <connections>
                         <outlet property="tableView" destination="Sko-vB-LV4" id="VQ7-Yb-5T7"/>
+                        <segue destination="sD1-jv-8Q2" kind="show" identifier="ConfigurationToEditAPIKey" id="Zl3-cL-7zV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vkz-zt-iMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="713" y="1673"/>
+        </scene>
+        <!--EditAPI Key View Controller-->
+        <scene sceneID="cIZ-d7-RI4">
+            <objects>
+                <viewController id="sD1-jv-8Q2" customClass="EditAPIKeyViewController" customModule="stockdata" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z5i-mL-Oyt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sB7-9K-6q0">
+                                <rect key="frame" x="20" y="128" width="374" height="45"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="lna-3k-tGq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1U3-rc-RNu">
+                                <rect key="frame" x="30" y="183" width="354" height="61.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid API Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qt-YN-dCs">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4D-qv-0i2">
+                                        <rect key="frame" x="0.0" y="28.5" width="169" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Generate new API Key"/>
+                                        <connections>
+                                            <action selector="generateAPIKeyPressed:" destination="sD1-jv-8Q2" eventType="touchUpInside" id="sEh-vi-vZm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0qt-YN-dCs" firstAttribute="top" secondItem="1U3-rc-RNu" secondAttribute="top" id="6lT-Df-vfM"/>
+                                    <constraint firstAttribute="bottom" secondItem="N4D-qv-0i2" secondAttribute="bottom" id="DwW-Bo-bxH"/>
+                                    <constraint firstAttribute="trailing" secondItem="0qt-YN-dCs" secondAttribute="trailing" id="Sf2-rQ-i4p"/>
+                                    <constraint firstItem="N4D-qv-0i2" firstAttribute="leading" secondItem="1U3-rc-RNu" secondAttribute="leading" id="dsn-9r-yfU"/>
+                                    <constraint firstItem="0qt-YN-dCs" firstAttribute="leading" secondItem="1U3-rc-RNu" secondAttribute="leading" id="wUc-Fv-4Uz"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gdG-7w-CQv"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="sB7-9K-6q0" firstAttribute="top" secondItem="gdG-7w-CQv" secondAttribute="top" constant="40" id="DkA-Ow-BrC"/>
+                            <constraint firstItem="gdG-7w-CQv" firstAttribute="trailing" secondItem="1U3-rc-RNu" secondAttribute="trailing" constant="30" id="Id8-jh-hZe"/>
+                            <constraint firstItem="1U3-rc-RNu" firstAttribute="top" secondItem="sB7-9K-6q0" secondAttribute="bottom" constant="10" id="Is9-mz-pqd"/>
+                            <constraint firstItem="gdG-7w-CQv" firstAttribute="trailing" secondItem="sB7-9K-6q0" secondAttribute="trailing" constant="20" id="M5w-Iy-220"/>
+                            <constraint firstItem="1U3-rc-RNu" firstAttribute="leading" secondItem="gdG-7w-CQv" secondAttribute="leading" constant="30" id="grJ-KB-G2E"/>
+                            <constraint firstItem="sB7-9K-6q0" firstAttribute="leading" secondItem="gdG-7w-CQv" secondAttribute="leading" constant="20" id="sWX-lx-Xiu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WRo-cZ-Zz5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lnK-0A-Gh8">
+                            <connections>
+                                <action selector="savePressed:" destination="sD1-jv-8Q2" id="SV8-xT-fCX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="errorMessageLabel" destination="0qt-YN-dCs" id="Mcm-HN-rwh"/>
+                        <outlet property="generateButton" destination="N4D-qv-0i2" id="L1s-R9-1Kz"/>
+                        <outlet property="textField" destination="sB7-9K-6q0" id="4cZ-xl-7oI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0r5-RW-ckH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657.9710144927537" y="1672.7678571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Is6-2f-UhK">
@@ -245,6 +318,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

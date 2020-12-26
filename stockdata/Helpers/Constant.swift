@@ -20,4 +20,8 @@ struct K {
         static let green = "Green"
         static let grey = "Grey"
     }
+    
+    struct Segue {
+        static let configurationToEditAPIKey = "ConfigurationToEditAPIKey"
+    }
 }

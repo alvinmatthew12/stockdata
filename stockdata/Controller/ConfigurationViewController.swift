@@ -104,6 +104,9 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableContents[indexPath.section][indexPath.row] == "api" {
+            performSegue(withIdentifier: K.Segue.configurationToEditAPIKey, sender: self)
+        }
         if tableContents[indexPath.section][indexPath.row] == "interval" {
             showIntervalPicker = !showIntervalPicker
             showOutputsizePicker = false
