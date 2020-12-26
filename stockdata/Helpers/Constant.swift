@@ -11,6 +11,7 @@ struct K {
         static let symbolCollectionViewCell = "SymbolCollectionViewCell"
         static let comparisonTableViewCell = "ComparisonTableViewCell"
         static let comparisonItemTableViewCell = "ComparisonItemTableViewCell"
+        static let pickerViewTableViewCell = "PickerViewTableViewCell"
     }
     
     struct Color {

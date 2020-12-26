@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oX0-YQ-xOP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="brw-ll-957">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -141,6 +141,46 @@
             </objects>
             <point key="canvasLocation" x="711.59420289855075" y="897.99107142857133"/>
         </scene>
+        <!--Configuration View Controller-->
+        <scene sceneID="dkr-zU-1WX">
+            <objects>
+                <viewController id="hiT-R6-Eh3" customClass="ConfigurationViewController" customModule="stockdata" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VYv-UU-KsY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Sko-vB-LV4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="mgh-HW-AXu">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mgh-HW-AXu" id="Mgy-A6-MNN">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wkm-tF-lmA"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Sko-vB-LV4" secondAttribute="bottom" id="9gT-MA-6z0"/>
+                            <constraint firstItem="Wkm-tF-lmA" firstAttribute="trailing" secondItem="Sko-vB-LV4" secondAttribute="trailing" id="baO-uT-fWf"/>
+                            <constraint firstItem="Sko-vB-LV4" firstAttribute="leading" secondItem="Wkm-tF-lmA" secondAttribute="leading" id="hEs-8z-jPy"/>
+                            <constraint firstItem="Sko-vB-LV4" firstAttribute="top" secondItem="Wkm-tF-lmA" secondAttribute="top" id="q3u-dd-dJf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="M1y-Q2-EtI"/>
+                    <connections>
+                        <outlet property="tableView" destination="Sko-vB-LV4" id="VQ7-Yb-5T7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vkz-zt-iMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="1673"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Is6-2f-UhK">
             <objects>
@@ -177,6 +217,24 @@
             </objects>
             <point key="canvasLocation" x="-197" y="898"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jdm-xn-cQh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="brw-ll-957" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nM1-lL-zZc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hiT-R6-Eh3" kind="relationship" relationship="rootViewController" id="P1E-6e-yk0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nhd-IX-gBE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-197" y="1673"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">
@@ -184,6 +242,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

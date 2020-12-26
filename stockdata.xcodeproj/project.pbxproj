@@ -12,6 +12,9 @@
 		E12833AC2595AF88009976FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12833AA2595AF88009976FB /* Main.storyboard */; };
 		E12833AE2595AF89009976FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12833AD2595AF89009976FB /* Assets.xcassets */; };
 		E12833B12595AF89009976FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12833AF2595AF89009976FB /* LaunchScreen.storyboard */; };
+		E1809ABE259728CD00A5C44E /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1809ABD259728CD00A5C44E /* ConfigurationViewController.swift */; };
+		E1809AC82597441F00A5C44E /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1809AC62597441F00A5C44E /* PickerViewTableViewCell.swift */; };
+		E1809AC92597441F00A5C44E /* PickerViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1809AC72597441F00A5C44E /* PickerViewTableViewCell.xib */; };
 		E1C9C39C2595CADC0074E490 /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C39B2595CADC0074E490 /* IntradayViewController.swift */; };
 		E1C9C3A52595CE6E0074E490 /* IntradayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3A32595CE6E0074E490 /* IntradayTableViewCell.swift */; };
 		E1C9C3A62595CE6E0074E490 /* IntradayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */; };
@@ -40,6 +43,9 @@
 		E12833AD2595AF89009976FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E12833B02595AF89009976FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E12833B22595AF89009976FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1809ABD259728CD00A5C44E /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		E1809AC62597441F00A5C44E /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
+		E1809AC72597441F00A5C44E /* PickerViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewTableViewCell.xib; sourceTree = "<group>"; };
 		E1C9C39B2595CADC0074E490 /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
 		E1C9C3A32595CE6E0074E490 /* IntradayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayTableViewCell.swift; sourceTree = "<group>"; };
 		E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntradayTableViewCell.xib; sourceTree = "<group>"; };
@@ -105,11 +111,30 @@
 			path = stockdata;
 			sourceTree = "<group>";
 		};
+		E1809AC3259743F100A5C44E /* PickerView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E1809AC62597441F00A5C44E /* PickerViewTableViewCell.swift */,
+				E1809AC72597441F00A5C44E /* PickerViewTableViewCell.xib */,
+			);
+			path = "PickerView Cell";
+			sourceTree = "<group>";
+		};
+		E1809AC4259743FE00A5C44E /* Intraday Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E1C9C3A32595CE6E0074E490 /* IntradayTableViewCell.swift */,
+				E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */,
+			);
+			path = "Intraday Cell";
+			sourceTree = "<group>";
+		};
 		E1C9C39E2595CAE30074E490 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				E1C9C39B2595CADC0074E490 /* IntradayViewController.swift */,
 				E1C9C3D125963B560074E490 /* DailyAdjustedViewController.swift */,
+				E1809ABD259728CD00A5C44E /* ConfigurationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,8 +152,8 @@
 		E1C9C3A22595CE300074E490 /* Custom TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				E1C9C3A32595CE6E0074E490 /* IntradayTableViewCell.swift */,
-				E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */,
+				E1809AC4259743FE00A5C44E /* Intraday Cell */,
+				E1809AC3259743F100A5C44E /* PickerView Cell */,
 				E1C9C3E325964ED70074E490 /* Comparison Cell */,
 			);
 			path = "Custom TableViewCells";
@@ -247,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1809AC92597441F00A5C44E /* PickerViewTableViewCell.xib in Resources */,
 				E12833B12595AF89009976FB /* LaunchScreen.storyboard in Resources */,
 				E1C9C3E125964E380074E490 /* ComparisonItemTableViewCell.xib in Resources */,
 				E1C9C3A62595CE6E0074E490 /* IntradayTableViewCell.xib in Resources */,
@@ -270,9 +296,11 @@
 				E1C9C3AB2595D36C0074E490 /* View.swift in Sources */,
 				E1C9C3DD25964A7B0074E490 /* ComparisonTableViewCell.swift in Sources */,
 				E1C9C3C6259604C50074E490 /* ViewController.swift in Sources */,
+				E1809AC82597441F00A5C44E /* PickerViewTableViewCell.swift in Sources */,
 				E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */,
 				E12833A52595AF88009976FB /* AppDelegate.swift in Sources */,
 				E1C9C3E9259666710074E490 /* DailyAdjustedModel.swift in Sources */,
+				E1809ABE259728CD00A5C44E /* ConfigurationViewController.swift in Sources */,
 				E1C9C3D225963B560074E490 /* DailyAdjustedViewController.swift in Sources */,
 				E1C9C3BE2595EFC10074E490 /* IntradayData.swift in Sources */,
 				E12833A72595AF88009976FB /* SceneDelegate.swift in Sources */,
