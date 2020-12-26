@@ -22,6 +22,8 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
     var showIntervalPicker: Bool = false
     var showOutputsizePicker: Bool = false
     
+    let configurationModel = ConfigurationModel()
+    
     override func viewWillAppear(_ animated: Bool) {
         title = "Configuration"
     }
@@ -33,8 +35,9 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
         tableView.delegate = self
         tableView.register(UINib(nibName: K.Cell.pickerViewTableViewCell, bundle: nil), forCellReuseIdentifier: K.Cell.pickerViewTableViewCell)
         
-        intervalValue = "5min"
-        outputsizeValue = "compact"
+        let parameters = configurationModel.getParameters()
+        intervalValue = parameters.interval
+        outputsizeValue = parameters.outputsize
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,7 +65,7 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
         }
         if tableContents[indexPath.section][indexPath.row] == "interval" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel?.text = "Internal"
+            cell.textLabel?.text = "Interval"
             intervalValueLabel.textColor = UIColor(named: K.Color.grey)
             intervalValueLabel.text = intervalValue
             cell.addSubview(intervalValueLabel)
@@ -86,7 +89,9 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
             let pickerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.pickerViewTableViewCell, for: indexPath) as! PickerViewTableViewCell
             pickerCell.delegate = self
             pickerCell.key = "interval"
-            pickerCell.items = ["1min", "5min", "15min"]
+            for value in IntervalValue.allCases {
+                pickerCell.items.append(value.rawValue)
+            }
             pickerCell.selectedItem = intervalValue
             return pickerCell
         }
@@ -94,7 +99,9 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
             let pickerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.pickerViewTableViewCell, for: indexPath) as! PickerViewTableViewCell
             pickerCell.delegate = self
             pickerCell.key = "outputsize"
-            pickerCell.items = ["compact", "full"]
+            for value in OutputsizeValue.allCases {
+                pickerCell.items.append(value.rawValue)
+            }
             pickerCell.selectedItem = outputsizeValue
             return pickerCell
         }
@@ -137,8 +144,13 @@ class ConfigurationViewController: UIViewController, UITableViewDataSource, UITa
 
 extension ConfigurationViewController: PickerViewTableViewCellDelegate {
     func didSelectItem(key: String, value: String) {
-        if key == "interval" { intervalValue = value }
-        else { outputsizeValue = value }
+        if key == "interval" {
+            intervalValue = value
+            configurationModel.updateParameter(interval: value)
+        } else {
+            outputsizeValue = value
+            configurationModel.updateParameter(outputsize: value)
+        }
         tableView.reloadData()
     }
 }

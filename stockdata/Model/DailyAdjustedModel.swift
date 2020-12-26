@@ -17,8 +17,14 @@ struct DailyAdjustedModel {
     let apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&apikey=SINALNWR6553GGBL"
     var delegate: DailyAdjustedModelDelegate?
     
+    func setApiURL() -> String {
+        let configurationModel = ConfigurationModel()
+        let parameters = configurationModel.getParameters()
+        return "\(apiURL)&outputsize=\(parameters.outputsize)"
+    }
+    
     func fetchDailyAdjusted(symbol: String) {
-        let urlString = "\(apiURL)&symbol=\(symbol)"
+        let urlString = "\(setApiURL())&symbol=\(symbol)"
         performRequest(with: urlString)
     }
     

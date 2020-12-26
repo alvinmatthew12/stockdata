@@ -13,11 +13,17 @@ protocol IntradayModelDelegate {
 }
 
 struct IntradayModel {
-    let apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=5min&apikey=SINALNWR6553GGBL"
+    let apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&apikey=SINALNWR6553GGBL"
     var delegate: IntradayModelDelegate?
     
+    func setApiURL() -> String {
+        let configurationModel = ConfigurationModel()
+        let parameters = configurationModel.getParameters()
+        return "\(apiURL)&interval=\(parameters.interval)&outputsize=\(parameters.outputsize)"
+    }
+    
     func fetchIntraday(symbol: String) {
-        let urlString = "\(apiURL)&symbol=\(symbol)"
+        let urlString = "\(setApiURL())&symbol=\(symbol)"
         performRequest(with: urlString)
     }
     

@@ -29,7 +29,8 @@ class PickerViewTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPicker
         
         DispatchQueue.main.async { [self] in
             if let index = items.firstIndex(of: selectedItem) {
-                pickerView.selectRow(index, inComponent: 0, animated: false)            }
+                pickerView.selectRow(index, inComponent: 0, animated: false)
+            }
         }
     }
 

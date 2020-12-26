@@ -24,4 +24,9 @@ struct K {
     struct Segue {
         static let configurationToEditAPIKey = "ConfigurationToEditAPIKey"
     }
+    
+    struct UserDefaultKey {
+        static let interval = "interval"
+        static let outputsize = "outputsize"
+    }
 }
