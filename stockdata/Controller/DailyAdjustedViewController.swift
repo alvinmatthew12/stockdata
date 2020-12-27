@@ -63,7 +63,7 @@ extension DailyAdjustedViewController: UISearchBarDelegate {
             return
         }
         if addedSymbols.count < 3 {
-            if addedSymbols.firstIndex(of: searchBar.text!) != nil {
+            if addedSymbols.firstIndex(of: searchBar.text!.uppercased()) != nil {
                 showAlert(title: "Alert", message: "Symbol has been added")
             } else {
                 dailyAdjustedModel.fetchDailyAdjusted(symbol: searchBar.text!.uppercased())
