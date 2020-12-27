@@ -36,6 +36,11 @@ struct ConfigurationModel {
         return Parameter(interval: interval, outputsize: outputsize)
     }
     
+    func getTimeSeriesKey() -> String {
+        let parameters = getParameters()
+        return "Time Series (\(parameters.interval))"
+    }
+    
     func updateParameter(interval value: String) {
         defaults.setValue(value, forKey: K.UserDefaultKey.interval)
     }

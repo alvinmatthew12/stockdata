@@ -75,17 +75,30 @@ struct IntradayModel {
     
     
     private func parseJSON(_ intradayData: Data) -> Intraday? {
-        let decoder = JSONDecoder()
+//        let decoder = JSONDecoder()
         
         do {
-            let decodedData = try decoder.decode(IntradayResponse.self, from: intradayData)
+//            let decodedData = try decoder.decode(IntradayResponse.self, from: intradayData)
             
-            let symbol = decodedData.metaData.the2Symbol
+            var symbol: String = "--"
             var timeSeries: [IntradayTimeSerie] = []
-            for (key, value) in decodedData.timeSeries5Min {
-                timeSeries.append(IntradayTimeSerie(datetime: key, open: value.the1Open, high: value.the2High, low: value.the3Low))
-            }
             
+            
+            if let json = try JSONSerialization.jsonObject(with: intradayData, options: []) as? [String: Any] {
+                if let metaData = json["Meta Data"] as? [String: Any] {
+                    if let metaData = metaData as? Dictionary<String, String> {
+                        symbol = metaData["2. Symbol"]!
+                    }
+                }
+                
+                if let time = json[configurationModel.getTimeSeriesKey()] as? [String: Any] {
+                    for (key, value) in time {
+                        if let value = value as? Dictionary<String, String> {
+                            timeSeries.append(IntradayTimeSerie(datetime: key, open: value["1. open"]!, high: value["2. high"]!, low: value["3. low"]!))
+                        }
+                    }
+                }
+            }
             let intraday = Intraday(symbol: symbol, timeSeries: timeSeries)
             return intraday
 

@@ -7,13 +7,15 @@
 
 import Foundation
 
+let configurationModel = ConfigurationModel()
+
 struct IntradayResponse: Codable {
     let metaData: IntradayMetaData
-    let timeSeries5Min: [String: TimeSeries5Min]
+    let timeSeries: [String: TimeSeries]
 
     enum CodingKeys: String, CodingKey {
         case metaData = "Meta Data"
-        case timeSeries5Min = "Time Series (5min)"
+        case timeSeries = "Time Series (5min)"
     }
 }
 
@@ -30,7 +32,7 @@ struct IntradayMetaData: Codable {
     }
 }
 
-struct TimeSeries5Min: Codable {
+struct TimeSeries: Codable {
     let the1Open, the2High, the3Low, the4Close, the5Volume: String
 
     enum CodingKeys: String, CodingKey {
