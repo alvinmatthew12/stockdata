@@ -268,9 +268,6 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSu-ds-6Rv">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="125"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="125" id="sBa-qG-rCv"/>
-                                                </constraints>
                                                 <connections>
                                                     <segue destination="BYZ-38-t0r" kind="show" id="4El-CX-fpX"/>
                                                 </connections>
@@ -317,7 +314,6 @@
                                         </subviews>
                                         <color key="backgroundColor" name="Red"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="125" id="8VV-i6-OTJ"/>
                                             <constraint firstItem="Ins-7K-Bma" firstAttribute="leading" secondItem="TB3-IZ-XG1" secondAttribute="leading" id="CHo-EA-ccj"/>
                                             <constraint firstItem="Uyi-yV-t0i" firstAttribute="centerY" secondItem="TB3-IZ-XG1" secondAttribute="centerY" id="IbY-lQ-sp9"/>
                                             <constraint firstItem="Ins-7K-Bma" firstAttribute="top" secondItem="TB3-IZ-XG1" secondAttribute="top" id="Io1-FR-Z9A"/>
@@ -367,7 +363,6 @@
                                             <constraint firstAttribute="trailing" secondItem="TCs-Sz-tVp" secondAttribute="trailing" id="a7E-7h-Zma"/>
                                             <constraint firstAttribute="bottom" secondItem="TCs-Sz-tVp" secondAttribute="bottom" id="dbi-l3-PNd"/>
                                             <constraint firstItem="TCs-Sz-tVp" firstAttribute="leading" secondItem="QVY-zT-NWn" secondAttribute="leading" id="g0u-au-g5K"/>
-                                            <constraint firstAttribute="height" constant="125" id="nDW-KX-JJe"/>
                                             <constraint firstAttribute="trailing" secondItem="TCs-Sz-tVp" secondAttribute="trailing" id="phW-1W-u1B"/>
                                             <constraint firstAttribute="trailing" secondItem="lVJ-nW-ftq" secondAttribute="trailing" id="rvD-bo-Hjc"/>
                                             <constraint firstItem="lVJ-nW-ftq" firstAttribute="leading" secondItem="QVY-zT-NWn" secondAttribute="leading" id="sI6-ZH-mD3"/>
@@ -384,10 +379,13 @@
                         <viewLayoutGuide key="safeArea" id="ATe-Zn-lDi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="UFT-sD-HBG" firstAttribute="height" secondItem="lkx-nn-FfL" secondAttribute="height" multiplier="0.139509" id="JTl-XN-efZ"/>
                             <constraint firstItem="KKj-ST-caQ" firstAttribute="centerX" secondItem="lkx-nn-FfL" secondAttribute="centerX" id="U2D-yP-jZS"/>
+                            <constraint firstItem="QVY-zT-NWn" firstAttribute="height" secondItem="lkx-nn-FfL" secondAttribute="height" multiplier="0.139509" id="Zse-hv-T5l"/>
                             <constraint firstItem="KKj-ST-caQ" firstAttribute="top" secondItem="ATe-Zn-lDi" secondAttribute="top" constant="40" id="fCZ-HI-AeB"/>
                             <constraint firstItem="ATe-Zn-lDi" firstAttribute="trailing" secondItem="KKj-ST-caQ" secondAttribute="trailing" constant="20" id="pOj-Jh-HkX"/>
                             <constraint firstItem="KKj-ST-caQ" firstAttribute="leading" secondItem="ATe-Zn-lDi" secondAttribute="leading" constant="20" id="yiy-Ws-nSW"/>
+                            <constraint firstItem="TB3-IZ-XG1" firstAttribute="height" secondItem="lkx-nn-FfL" secondAttribute="height" multiplier="0.139509" id="zCh-c6-a4w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zTm-pn-vYe"/>
