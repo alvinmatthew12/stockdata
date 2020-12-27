@@ -20,6 +20,7 @@
 		E1809AC82597441F00A5C44E /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1809AC62597441F00A5C44E /* PickerViewTableViewCell.swift */; };
 		E1809AC92597441F00A5C44E /* PickerViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1809AC72597441F00A5C44E /* PickerViewTableViewCell.xib */; };
 		E1809ACC2597617500A5C44E /* EditAPIKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1809ACB2597617500A5C44E /* EditAPIKeyViewController.swift */; };
+		E19DA01C2598B02000AF362F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19DA01B2598B02000AF362F /* HomeViewController.swift */; };
 		E1C9C39C2595CADC0074E490 /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C39B2595CADC0074E490 /* IntradayViewController.swift */; };
 		E1C9C3A52595CE6E0074E490 /* IntradayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C3A32595CE6E0074E490 /* IntradayTableViewCell.swift */; };
 		E1C9C3A62595CE6E0074E490 /* IntradayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */; };
@@ -56,6 +57,7 @@
 		E1809AC62597441F00A5C44E /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
 		E1809AC72597441F00A5C44E /* PickerViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewTableViewCell.xib; sourceTree = "<group>"; };
 		E1809ACB2597617500A5C44E /* EditAPIKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAPIKeyViewController.swift; sourceTree = "<group>"; };
+		E19DA01B2598B02000AF362F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E1C9C39B2595CADC0074E490 /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
 		E1C9C3A32595CE6E0074E490 /* IntradayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayTableViewCell.swift; sourceTree = "<group>"; };
 		E1C9C3A42595CE6E0074E490 /* IntradayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntradayTableViewCell.xib; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				E1C9C3D125963B560074E490 /* DailyAdjustedViewController.swift */,
 				E1809ABD259728CD00A5C44E /* ConfigurationViewController.swift */,
 				E1809ACB2597617500A5C44E /* EditAPIKeyViewController.swift */,
+				E19DA01B2598B02000AF362F /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				E1809AC82597441F00A5C44E /* PickerViewTableViewCell.swift in Sources */,
 				E1C9C3C12595F1010074E490 /* IntradayModel.swift in Sources */,
 				E12833A52595AF88009976FB /* AppDelegate.swift in Sources */,
+				E19DA01C2598B02000AF362F /* HomeViewController.swift in Sources */,
 				E106DAD72597D2310004317C /* KeychainItemAccessibility.swift in Sources */,
 				E1C9C3E9259666710074E490 /* DailyAdjustedModel.swift in Sources */,
 				E106DACB2597A65F0004317C /* ConfigurationModel.swift in Sources */,
