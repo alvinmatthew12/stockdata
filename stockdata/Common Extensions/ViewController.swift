@@ -44,6 +44,9 @@ extension UIViewController {
     }
     
     func loadingStop(){
-        ProgressDialog.alert.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            ProgressDialog.alert.dismiss(animated: true, completion: nil)
+            self.view.endEditing(true)
+        }
     }
 }

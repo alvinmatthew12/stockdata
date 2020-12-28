@@ -107,20 +107,21 @@ extension IntradayViewController: IntradayModelDelegate {
             sortButton.setTitle("sort by", for: .normal)
             tableView.reloadData()
             self.loadingStop()
-            view.endEditing(true)
         }
     }
     
     func didFailWithError(error: Error, errorMessage: String) {
-        view.endEditing(true)
         self.loadingStop()
-        showErrorAlert(message: errorMessage)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.showErrorAlert(message: errorMessage)
+        })
     }
     
     func didFailWithoutError(errorMessage: String) {
-        view.endEditing(true)
         self.loadingStop()
-        showErrorAlert(message: errorMessage)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.showErrorAlert(message: errorMessage)
+        })
     }
 }
 

@@ -94,20 +94,21 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
             collectionView.reloadData()
             tableView.reloadData()
             self.loadingStop()
-            view.endEditing(true)
         }
     }
     
     func didFailWithError(error: Error, errorMessage: String) {
-        view.endEditing(true)
         self.loadingStop()
-        showAlert(message: errorMessage)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.showAlert(message: errorMessage)
+        })
     }
     
     func didFailWithoutError(errorMessage: String) {
-        view.endEditing(true)
         self.loadingStop()
-        showAlert(message: errorMessage)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.showAlert(message: errorMessage)
+        })
     }
     
     func removeSymbol(_ symbol: String) {
