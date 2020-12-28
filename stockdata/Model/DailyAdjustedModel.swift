@@ -107,7 +107,11 @@ struct DailyAdjustedModel {
     private func errorHandle(error: Error) -> String {
         var errorMessage = "Sorry, something went wrong"
         
-        errorMessage = error.localizedDescription
+        if error.localizedDescription == "The data couldn’t be read because it is missing." {
+            errorMessage = "Sorry we couldn't find the symbol you were looking for"
+        } else {
+            errorMessage = error.localizedDescription
+        }
         
         return errorMessage
     }

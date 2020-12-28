@@ -83,11 +83,20 @@ struct IntradayModel {
             var symbol: String = "--"
             var timeSeries: [IntradayTimeSerie] = []
             
-            
             if let json = try JSONSerialization.jsonObject(with: intradayData, options: []) as? [String: Any] {
                 if let metaData = json["Meta Data"] as? [String: Any] {
                     if let metaData = metaData as? Dictionary<String, String> {
                         symbol = metaData["2. Symbol"]!
+                    } else {
+                        DispatchQueue.main.async {
+                            delegate?.didFailWithoutError(errorMessage: "Sorry we couldn't find the symbol you were looking for")
+                            return
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        delegate?.didFailWithoutError(errorMessage: "Sorry we couldn't find the symbol you were looking for")
+                        return
                     }
                 }
                 

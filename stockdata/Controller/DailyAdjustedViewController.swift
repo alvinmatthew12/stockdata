@@ -28,7 +28,6 @@ class DailyAdjustedViewController: UIViewController {
         self.hideKeyboardWhenTappedAnywhere()
         
         dailyAdjustedModel.delegate = self
-        dailyAdjustedModel.fetchDailyAdjusted(symbol: "AIA")
         
         searchBar.delegate = self
         
@@ -66,6 +65,7 @@ extension DailyAdjustedViewController: UISearchBarDelegate {
             if addedSymbols.firstIndex(of: searchBar.text!.uppercased()) != nil {
                 showAlert(title: "Alert", message: "Symbol has been added")
             } else {
+                self.loadingStart()
                 dailyAdjustedModel.fetchDailyAdjusted(symbol: searchBar.text!.uppercased())
             }
         } else {
@@ -93,14 +93,20 @@ extension DailyAdjustedViewController: DailyAdjustedModelDelegate {
             dailyComparisons = dailyAdjustedModel.addDailyComparison(currentDailyComparison: dailyComparisons, newDailyComparison: dailyComparison, numberOfSymbols: addedSymbols.count)
             collectionView.reloadData()
             tableView.reloadData()
+            self.loadingStop()
+            view.endEditing(true)
         }
     }
     
     func didFailWithError(error: Error, errorMessage: String) {
+        view.endEditing(true)
+        self.loadingStop()
         showAlert(message: errorMessage)
     }
     
     func didFailWithoutError(errorMessage: String) {
+        view.endEditing(true)
+        self.loadingStop()
         showAlert(message: errorMessage)
     }
     

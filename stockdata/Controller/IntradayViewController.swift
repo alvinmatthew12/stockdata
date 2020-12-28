@@ -30,7 +30,6 @@ class IntradayViewController: UIViewController {
         sortButton.isHidden = timeSeries.count > 0 ? false : true
         
         intradayModel.delegate = self
-        intradayModel.fetchIntraday(symbol: "AIA")
         
         searchBar.delegate = self
         
@@ -81,6 +80,7 @@ extension IntradayViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.loadingStart()
         intradayModel.fetchIntraday(symbol: searchBar.text!.uppercased())
         view.endEditing(true)
     }
@@ -106,14 +106,20 @@ extension IntradayViewController: IntradayModelDelegate {
             sortButton.isHidden = false
             sortButton.setTitle("sort by", for: .normal)
             tableView.reloadData()
+            self.loadingStop()
+            view.endEditing(true)
         }
     }
     
     func didFailWithError(error: Error, errorMessage: String) {
+        view.endEditing(true)
+        self.loadingStop()
         showErrorAlert(message: errorMessage)
     }
     
     func didFailWithoutError(errorMessage: String) {
+        view.endEditing(true)
+        self.loadingStop()
         showErrorAlert(message: errorMessage)
     }
 }
@@ -134,6 +140,8 @@ extension IntradayViewController: UITableViewDataSource, UITableViewDelegate {
             cell.highValueLabel.text = timeSeries[indexPath.row].high
             cell.lowValueLabel.text = timeSeries[indexPath.row].low
             cell.datetimeLabel.text = timeSeries[indexPath.row].datetime
+        } else {
+            cell.resetLabelText()
         }
         
         return cell
