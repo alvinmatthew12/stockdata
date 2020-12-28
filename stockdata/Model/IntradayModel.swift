@@ -57,6 +57,7 @@ struct IntradayModel {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             session.configuration.timeoutIntervalForRequest = 15
+            session.configuration.timeoutIntervalForResource = 15
             
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
