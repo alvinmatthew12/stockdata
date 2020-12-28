@@ -18,6 +18,7 @@
 		E12833B12595AF89009976FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12833AF2595AF89009976FB /* LaunchScreen.storyboard */; };
 		E1337C0A2598E86A0003AF16 /* stockdataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1337C092598E86A0003AF16 /* stockdataTests.swift */; };
 		E17704FB25999FB300C7F595 /* DailyAdjustedModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17704FA25999FB300C7F595 /* DailyAdjustedModelTests.swift */; };
+		E17705012599A59000C7F595 /* ConfigurationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17705002599A59000C7F595 /* ConfigurationModelTests.swift */; };
 		E1809ABE259728CD00A5C44E /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1809ABD259728CD00A5C44E /* ConfigurationViewController.swift */; };
 		E1809AC82597441F00A5C44E /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1809AC62597441F00A5C44E /* PickerViewTableViewCell.swift */; };
 		E1809AC92597441F00A5C44E /* PickerViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1809AC72597441F00A5C44E /* PickerViewTableViewCell.xib */; };
@@ -70,6 +71,7 @@
 		E1337C092598E86A0003AF16 /* stockdataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockdataTests.swift; sourceTree = "<group>"; };
 		E1337C0B2598E86A0003AF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E17704FA25999FB300C7F595 /* DailyAdjustedModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjustedModelTests.swift; sourceTree = "<group>"; };
+		E17705002599A59000C7F595 /* ConfigurationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationModelTests.swift; sourceTree = "<group>"; };
 		E1809ABD259728CD00A5C44E /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		E1809AC62597441F00A5C44E /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
 		E1809AC72597441F00A5C44E /* PickerViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				E1337C092598E86A0003AF16 /* stockdataTests.swift */,
 				E1CE83BE2599037A0091D716 /* IntradayModelTests.swift */,
 				E17704FA25999FB300C7F595 /* DailyAdjustedModelTests.swift */,
+				E17705002599A59000C7F595 /* ConfigurationModelTests.swift */,
 				E1337C0B2598E86A0003AF16 /* Info.plist */,
 			);
 			path = stockdataTests;
@@ -407,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17705012599A59000C7F595 /* ConfigurationModelTests.swift in Sources */,
 				E1337C0A2598E86A0003AF16 /* stockdataTests.swift in Sources */,
 				E17704FB25999FB300C7F595 /* DailyAdjustedModelTests.swift in Sources */,
 				E1CE83BF2599037A0091D716 /* IntradayModelTests.swift in Sources */,
